@@ -1,0 +1,40 @@
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj Analógico</title>
+  <link rel="stylesheet" href="styles.css">
+
+<script>
+// CÓDIGO CON ERRORES INTENCIONALES
+
+function actualizarReloj() {
+  const ahora = new Date();
+  
+  const segundos = ahora.getSeconds();
+  const minutos = ahora.getMinutes();
+  const horas = ahora.getHours();
+
+  // Cálculo de ángulos de rotación (360 grados por vuelta)
+  const anguloSegundos = (segundos / 100) * 360; 
+  const anguloMinutos = (minutos / 60) * 360;
+  const anguloHoras = (horas / 24) * 360 + (minutos / 60) * 30;
+
+  // Aplicación del estilo de rotación en el DOM
+  document.getElementById("aguja-segundos").style.transform = `rotate(${anguloSegundos})`;
+  document.getElementById("aguja-minutos").style.transform = `rotate(${anguloMinutos}deg)`;
+  document.getElementById("aguja-horas").style.transform = `rotate(${anguloHoras}deg)`;
+}
+
+// Ejecución inicial
+actualizarReloj();
+
+// Ejecución inicial
+actualizarReloj();
+</script>
+</head>
+<body>
+
+</body>
+</html>
