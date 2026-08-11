@@ -28,9 +28,7 @@ function actualizarReloj() {
 
 }
 
-// Ejecución inicial
-actualizarReloj();
-setInterval(actualizarReloj, 1000);
+
 
 </script>
 <style>
@@ -87,5 +85,11 @@ setInterval(actualizarReloj, 1000);
     <div id="aguja-segundos" class="aguja"></div>
     <div id="centro"></div>
   </div>
+
+  <script>
+    // Llamada inicial para actualizar el reloj
+    actualizarReloj();
+    // Actualización del reloj cada segundo
+    setInterval(actualizarReloj, 1000);
 </body>
 </html>
