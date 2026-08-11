@@ -1,13 +1,11 @@
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reloj Analógico</title>
-
 <style>
   #reloj {
-  
     width: 200px;
     height: 200px;
     border: 2px solid #000;
@@ -15,121 +13,70 @@
     position: relative;
   }
 
-  .aguja {
+  #aguja-horas {
     position: absolute;
-    top: 50%;
+    top: 28%;
     left: 50%;
     transform-origin: bottom center;
-    background-color: #000;
-  }
-
-  #aguja-horas {
+    background-color: #17096e;
     width: 6px;
-    height: 10px;
+    height: 45px;
     margin-left: -3px;
   }
-
   #aguja-minutos {
-    width: 4px;
-    height: 10px;
-    margin-left: -2px;
-  }
-
-  #aguja-segundos {
-    width: 2px;
-    height: 10px;
-    margin-left: -1px;
-  }
-
-  #centro {
-    width: 10px;
-    height: 10px;
-    background-color: #000;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-
-<script>
-// CÓDIGO CON ERRORES INTENCIONALES
-
-function actualizarReloj() {
-  const ahora = new Date();
-  
-  const segundos = ahora.getSeconds();
-  const minutos = ahora.getMinutes();
-  const horas = ahora.getHours();
-
-  // Cálculo de ángulos de rotación (360 grados por vuelta)
-  const anguloSegundos = (segundos / 60) * 360; 
-  const anguloMinutos = (minutos / 60) * 360;
-  const anguloHoras = (horas % 12 / 12) * 360 + (minutos / 60) * 30;
-
-  // Aplicación del estilo de rotación en el DOM
-  document.getElementById("aguja-segundos").style.transform = `rotate(${anguloSegundos}deg)`;
-  document.getElementById("aguja-minutos").style.transform = `rotate(${anguloMinutos}deg)`;
-  document.getElementById("aguja-horas").style.transform = `rotate(${anguloHoras}deg)`;
-
-}
-
-
-
-</script>
-<style>
-  #reloj {
-  
-    width: 200px;
-    height: 200px;
-    border: 2px solid #000;
-    border-radius: 50%;
-    position: absolute;
-  }
-
-  .aguja {
-    position: absolute;
-    top: 50%;
+     position: absolute;
+    top: 20%;
     left: 50%;
     transform-origin: bottom center;
-    background-color: #000;
-  }
-
-  #aguja-horas {
-    width: 6px;
-    height: 10px;
-    margin-left: -10px;
-  }
-
-  #aguja-minutos {
+    background-color: #0b6006;
     width: 4px;
-    height: 10px;
+    height: 60px;
     margin-left: -2px;
   }
-
   #aguja-segundos {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform-origin: bottom center;
+    background-color: #e41a1a;
     width: 2px;
-    height: 50px;
+    height: 90px;
     margin-left: -1px;
   }
-
   #centro {
     width: 10px;
     height: 10px;
     background-color: #000;
     border-radius: 50%;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, 50%);
   }
 </style>
+<script>
+// CÓDIGO CON ERRORES INTENCIONALES
+function actualizarReloj() {
+  const ahora = new Date();
+  const segundos = ahora.getSeconds();
+  const minutos = ahora.getMinutes();
+  const horas = ahora.getHours();
+  // Cálculo de ángulos de rotación (360 grados por vuelta)
+  const anguloSegundos = (segundos / 60) * 360; 
+  const anguloMinutos = (minutos / 60) * 360;
+  const anguloHoras = (horas % 12 / 12) * 360 + (minutos / 60) * 30;
+  // Aplicación del estilo de rotación en el DOM
+  document.getElementById("aguja-segundos").style.transform = `rotate(${anguloSegundos}deg)`;
+  document.getElementById("aguja-minutos").style.transform = `rotate(${anguloMinutos}deg)`;
+  document.getElementById("aguja-horas").style.transform = `rotate(${anguloHoras}deg)`;
+}
+</script>
 </head>
 <body>
   <div id="reloj">
-    <div id="aguja-horas" class="aguja"></div>
-    <div id="aguja-minutos" class="aguja"></div>
-    <div id="aguja-segundos" class="aguja"></div>
+    <div id="aguja-horas"></div>
+    <div id="aguja-minutos"></div>
+    <div id="aguja-segundos"></div>
     <div id="centro"></div>
   </div>
 
