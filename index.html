@@ -22,7 +22,7 @@ function actualizarReloj() {
   const anguloHoras = (horas % 12 / 12) * 360 + (minutos / 60) * 30;
 
   // Aplicación del estilo de rotación en el DOM
-  document.getElementById("aguja-segundos").style.transform = `rotate(${anguloSegundos})`;
+  document.getElementById("aguja-segundos").style.transform = `rotate(${anguloSegundos}deg)`;
   document.getElementById("aguja-minutos").style.transform = `rotate(${anguloMinutos}deg)`;
   document.getElementById("aguja-horas").style.transform = `rotate(${anguloHoras}deg)`;
 }
