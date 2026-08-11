@@ -17,7 +17,7 @@ function actualizarReloj() {
   const horas = ahora.getHours();
 
   // Cálculo de ángulos de rotación (360 grados por vuelta)
-  const anguloSegundos = (segundos / 100) * 360; 
+  const anguloSegundos = (segundos / 60) * 360; 
   const anguloMinutos = (minutos / 60) * 360;
   const anguloHoras = (horas / 24) * 360 + (minutos / 60) * 30;
 
