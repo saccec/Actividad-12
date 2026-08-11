@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reloj Analógico</title>
 <style>
+  #contenedor-reloj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+ 
+
   #reloj {
     width: 200px;
     height: 200px;
@@ -43,19 +51,46 @@
     height: 90px;
     margin-left: -1px;
   }
+  #aguja-alarma {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform-origin: bottom center;
+    background-color: #a4e418;
+    width: 6px;
+    height: 45px;
+    margin-left: -3px;
+  }
   #centro {
     width: 10px;
     height: 10px;
-    background-color: #000;
+    background-color: #d66712;
     border-radius: 50%;
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, 50%);
   }
+    #alarma {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    text-align: center;
+    font-size: 26px;
+  }
 </style>
 <script>
 // CÓDIGO CON ERRORES INTENCIONALES
+var horasAlarma = 0;
+var minutosAlarma = 0;
+function actualizarAlarma(horas, minutos) {
+  horasAlarma = horas;
+  minutosAlarma = minutos;
+  // Cálculo de ángulos de rotación (360 grados por vuelta)
+  const anguloHoras = (horasAlarma % 12 / 12) * 360 + (minutosAlarma / 60) * 30;
+  // Aplicación del estilo de rotación en el DOM
+  document.getElementById("aguja-alarma").style.transform = `rotate(${anguloHoras}deg)`;
+}
 function actualizarReloj() {
   const ahora = new Date();
   const segundos = ahora.getSeconds();
@@ -69,20 +104,32 @@ function actualizarReloj() {
   document.getElementById("aguja-segundos").style.transform = `rotate(${anguloSegundos}deg)`;
   document.getElementById("aguja-minutos").style.transform = `rotate(${anguloMinutos}deg)`;
   document.getElementById("aguja-horas").style.transform = `rotate(${anguloHoras}deg)`;
+  if(horas === horasAlarma && minutos === minutosAlarma) {
+    document.getElementById("alarma").innerText = "¡Alarma!";
+  }else {
+    document.getElementById("alarma").innerText = "";
+  }
 }
 </script>
 </head>
 <body>
+
+  <div id="contenedor-reloj">
+    
   <div id="reloj">
     <div id="aguja-horas"></div>
     <div id="aguja-minutos"></div>
     <div id="aguja-segundos"></div>
+    <div id="aguja-alarma"></div>
     <div id="centro"></div>
+    <div id="alarma"></div>
+  </div>
   </div>
 
   <script>
     // Llamada inicial para actualizar el reloj
     actualizarReloj();
+    actualizarAlarma(21, 17); // Configura la alarma a las 21:12
     // Actualización del reloj cada segundo
     setInterval(actualizarReloj, 1000);
   </script>
