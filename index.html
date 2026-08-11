@@ -25,11 +25,12 @@ function actualizarReloj() {
   document.getElementById("aguja-segundos").style.transform = `rotate(${anguloSegundos}deg)`;
   document.getElementById("aguja-minutos").style.transform = `rotate(${anguloMinutos}deg)`;
   document.getElementById("aguja-horas").style.transform = `rotate(${anguloHoras}deg)`;
-  setInterval(actualizarReloj, 1000);
+
 }
 
 // Ejecución inicial
 actualizarReloj();
+setInterval(actualizarReloj, 1000);
 
 
 </script>
