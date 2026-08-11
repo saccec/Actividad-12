@@ -32,10 +32,60 @@ function actualizarReloj() {
 actualizarReloj();
 setInterval(actualizarReloj, 1000);
 
-
 </script>
+<style>
+  #reloj {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .aguja {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    background-color: #000;
+  }
+
+  #aguja-horas {
+    width: 6px;
+    height: 60px;
+    margin-left: -3px;
+  }
+
+  #aguja-minutos {
+    width: 4px;
+    height: 80px;
+    margin-left: -2px;
+  }
+
+  #aguja-segundos {
+    width: 2px;
+    height: 90px;
+    margin-left: -1px;
+  }
+
+  #centro {
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
 </head>
 <body>
-
+  <div id="reloj">
+    <div id="aguja-horas" class="aguja"></div>
+    <div id="aguja-minutos" class="aguja"></div>
+    <div id="aguja-segundos" class="aguja"></div>
+    <div id="centro"></div>
+  </div>
 </body>
 </html>
